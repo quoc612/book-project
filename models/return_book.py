@@ -42,7 +42,7 @@ class ReturnBook(models.Model):
             if r.date_return_expried and r.date_borrow_book:
                 d1 = datetime.strptime(str(r.date_return_expried), '%Y-%m-%d')
                 d2 = datetime.strptime(str(r.date_borrow_book), '%Y-%m-%d')
-                d3 = d1 - d2
+                d3 = d2 - d1
                 r.total_days = str(d3.days)
 
     @api.depends('number_of_money', 'total_days')
